@@ -12,7 +12,7 @@ This is a solution to the [Profile card component challenge on Frontend Mentor](
 
 ### Screenshot
 
-![](./screenshot.png)
+![](./Screenshot.png)
 
 ### Links
 
@@ -29,5 +29,5 @@ This is a solution to the [Profile card component challenge on Frontend Mentor](
 
 ## Author
 
-- Website - [Eliabe Santos da Silva](https://github.com/eliabedasilva)
+- Website - [Eliabe Santos da Silva](https://github.com/eliabedasilva/projetos/tree/main/profile-card-component-main)
 - Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/eliabedasilva)
