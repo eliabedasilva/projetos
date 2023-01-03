@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+:root{
+    --Darkcyan: hsl(185, 75%, 39%);
+    --Verydarkdesaturatedblue: hsl(229, 23%, 23%);
+    --Darkgrayishblue: hsl(227, 10%, 46%);
+    --Darkgray: hsl(0, 0%, 59%);
+    /*
+    font-family: 'Kumbh Sans', sans-serif;
+    */
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 18px;
+    color: var(--Verydarkdesaturatedblue);
+    
+}
+main{
+    height: 100vh;
+    background-color: var(--Darkcyan);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    
+}
+section{
+    width: 350px;
+    border-radius: 15px;
+    background-color: white;
+    position: relative;
+}
+#background-top{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-image: url(images/bg-pattern-card.svg);
+    background-color: white;
+    height: 140px;
+}
+#main-content > img{
+    position: absolute;
+    width: 106px;
+    border-radius: 50%;
+    border: 5px solid white;
+    top: 87px;
+    left: 122px;
+}
+p#name-age{
+    font-weight: 700;
+    margin-top: 72px;
+    text-align: center;
+}
+p#name-age > span{
+    font-weight: 400;
+    color: var(--Darkgrayishblue);
+}
+p#city{
+    color: var(--Darkgrayishblue);
+    font-size: 15px;
+    text-align: center;
+    margin-top: 8px;
+}
+div#hr{
+    margin-top: 23px;
+    height: 1px;
+    background-color: rgb(217, 217, 217);
+}
+aside{
+    display: flex;
+    justify-content: space-around;
+}
+div.aside-componet{
+    margin-block: 24px;
+    text-align: center;
+}
+div.aside-componet p.amount{
+    font-weight: 700;
+}
+div.aside-componet p.category{ 
+    font-size: 11px;
+    margin-top: 3px;
+    letter-spacing: 1px;
+
+}
+div.attribution {
+    position: absolute;
+    top: 90vh;
+    width: 300px;
+    text-align: center;
+    overflow-y: none;
+}
+div.attribution a{
+    font-weight: 700;
+}
+
+#bg-pattern-top{
+    position: absolute;
+    background-image: url(images/bg-pattern-top.svg);
+    height: 480px;
+    width: 692px;
+    background-position: bottom right;
+    top: 0px;
+    left: 0px;
+    
+}
+#bg-pattern-bottom{
+    position: absolute;
+    background-image: url(images/bg-pattern-bottom.svg);
+    height: 344px;
+    width: 725px;
+    background-position: top left;;
+    right: 0vw;
+    bottom: 0vh;
+
+
+}
+
+@media only screen and (max-width: 500px){
+    section{
+        width: 328px;
+    }
+    #main-content > img{
+        left: 111px;
+    }
+    div.attribution p, a{
+        font-size: 12px;
+    }
+    #bg-pattern-top{
+        width: 222px;
+        height: 314px;
+    }
+    #bg-pattern-bottom{
+        width: 218px;
+        height: 392px;
+    }
+}
