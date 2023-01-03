@@ -16,8 +16,8 @@ This is a solution to the [Profile card component challenge on Frontend Mentor](
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/eliabedasilva/projetos/tree/main/profile-card-component-main)
+- Live Site URL: [Add live site URL here](https://eliabedasilva.github.io/projetos/profile-card-component-main/)
 
 ## My process
 
@@ -29,5 +29,5 @@ This is a solution to the [Profile card component challenge on Frontend Mentor](
 
 ## Author
 
-- Website - [Eliabe Santos da Silva](https://github.com/eliabedasilva/projetos/tree/main/profile-card-component-main)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/eliabedasilva)
+- Website - [Eliabe Santos da Silva](https://github.com/eliabedasilva)
+- Frontend Mentor - [@eliabedasilva](https://www.frontendmentor.io/profile/eliabedasilva)
