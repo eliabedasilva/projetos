@@ -45,6 +45,7 @@ section#join-our-community > h1{
     padding-top: 24px;
 }
 #normal-p{
+    width: 528px;
     color: var(--GrayishBlue);
     padding-top: 11px;
     line-height: 26px;
@@ -53,6 +54,8 @@ section#join-our-community > h1{
 #container{
     background-color: var(--Cyan);
     display: flex;
+    border-bottom-left-radius: 5px ;
+    border-bottom-right-radius: 5px ;
 }
 #container > section{
     color: white;
@@ -62,6 +65,10 @@ section#join-our-community > h1{
 #container > section> h2{
     font-size: 20px;
     padding-top: 40px;
+    
+}
+section#our-plans{
+    border-bottom-left-radius: 5px;
 }
 #per-month {
     display: flex;
@@ -99,16 +106,19 @@ a#sign-up{
 
 section#why-us{
     background-color: var(--lightCyan);
+    border-bottom-right-radius: 5px;
 
 }
 section#why-us > p{
     padding-top: 18px;
+    width: 210px;
 }
 
 footer{
     position: absolute;
     top: 95vh;
     font-family: var(--font);
+    text-align: center;
 
 }
 footer  a{
@@ -117,4 +127,32 @@ footer  a{
 }
 footer  a:hover{
     text-decoration: underline;
+}
+
+@media only screen and (max-width: 500px){
+    main{
+        width: 311px;
+        margin-top: 200px;
+    }
+    #yellow-p{
+        width: 256px;
+    }
+    #normal-p{
+        width: 240px;
+    }
+    #container{
+        flex-direction: column;
+    }
+    #container > section{
+        width: 100%;
+    }
+    section#why-us{
+        padding-bottom: 24px;
+        border-bottom-left-radius: 5px;
+    }
+    footer{
+        top: 130%;
+        font-size: 14px;
+    }
+
 }
