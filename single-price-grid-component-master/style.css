@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+:root{
+    --Cyan: hsl(179, 62%, 43%);
+    --BrightYellow: hsl(71, 73%, 54%);
+
+
+    --LightGray: hsl(204, 43%, 93%);
+    --GrayishBlue: hsl(218, 22%, 67%);
+    --lightCyan : #4ABEBD;
+    --font :'Karla', sans-serif;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+body{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: var(--font);
+    background-color: var(--LightGray);
+    
+}
+main{
+    width: 635px;
+    background-color: white;
+    border-radius: 5px;
+}
+section#join-our-community{
+    padding-left: 40px;
+}
+section#join-our-community > h1{
+    padding-top: 40px;
+    color: var(--Cyan);
+}
+#yellow-p{
+    color: var(--BrightYellow);
+    font-size: 18px;
+    padding-top: 24px;
+}
+#normal-p{
+    color: var(--GrayishBlue);
+    padding-top: 11px;
+    line-height: 26px;
+    padding-bottom: 39px;
+}
+#container{
+    background-color: var(--Cyan);
+    display: flex;
+}
+#container > section{
+    color: white;
+    width: 317.5px;
+    padding-left: 39px;
+}
+#container > section> h2{
+    font-size: 20px;
+    padding-top: 40px;
+}
+#per-month {
+    display: flex;
+    align-items: center;
+    padding-top: 16px;
+}
+div#per-month > span{
+    font-size: 30px;
+    font-weight: 700;
+    
+}
+div#per-month > p{
+    margin-left: 12px;
+    color: var(--LightGray);
+    opacity: 70%;
+}
+
+p#full-acess{
+    padding-top: 7px;
+}
+
+a#sign-up{
+    margin-top: 30px;
+    margin-bottom: 40px;
+    text-decoration: none;
+    display: block;
+    background-color: var(--BrightYellow);
+    padding-block: 15px;
+    width: 237px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
+}
+
+section#why-us{
+    background-color: var(--lightCyan);
+
+}
+section#why-us > p{
+    padding-top: 18px;
+}
+
+footer{
+    position: absolute;
+    top: 95vh;
+    font-family: var(--font);
+
+}
+footer  a{
+    text-decoration: none;
+    font-weight: 700;
+}
+footer  a:hover{
+    text-decoration: underline;
+}
