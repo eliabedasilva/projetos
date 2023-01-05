@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+:root{
+    --White: hsl(0, 0%, 100%);
+    --Lightgray: hsl(212, 45%, 89%);
+    --Grayishblue: hsl(220, 15%, 55%);
+    --Darkblue: hsl(218, 44%, 22%  );
+    --font: 'Outfit', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font);
+}
+body{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Lightgray);
+}
+main{
+    width: 291px;
+    border-radius: 20px;
+    background-color: var(--White);
+    text-align: center;
+}
+main > img{
+    width: 261px;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+    margin-top: 16px;
+}
+
+main > h1{
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--Darkblue);
+    width: 268px;
+    margin: auto;
+    margin-top: 22px;
+    
+}
+
+main > p{
+    font-size: 15px;
+    color: var(--Grayishblue);
+    width: 260px;
+    margin: auto;
+    margin-top: 11px;
+    margin-bottom: 42px;
+}
+
+footer{
+    position: absolute;
+    top: 95vh;
+    
+}
+footer > p{
+    color: var(--Darkblue);
+}
+footer > p > a{
+    text-decoration: none;
+    text-align: center;
+    font-weight: 700;
+    color: var(--Darkblue);
+}
+footer > p > a:hover{
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 500px){
+    footer > p,a{
+        font-size: 10px;
+    }
+
+}
