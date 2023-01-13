@@ -419,8 +419,8 @@ footer{
         display: block;
         position: absolute;
         background-color: white;
-        right: 40px;
-        top: 40px;
+        right: 20px;
+        top: 60px;
         z-index: 1;
     }
     #menu > nav > ul.activated::before{
@@ -436,7 +436,7 @@ footer{
     }
     #menu > nav > ul.activated > li{
         text-align: center;
-        width: 328px;
+        width: 300px;
         margin-block: 40px;
     }
     #menu > nav > ul.activated > li > a{
