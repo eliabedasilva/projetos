@@ -287,9 +287,10 @@ a.button-selected {
 
 #Images{
     display: flex;
+    flex-wrap: wrap;
 }
 #Images > div{
-    width: 25%;
+    width: 50%;
     height: 446px;
 }
 .bottles{
@@ -446,6 +447,61 @@ footer{
         background-color: var(--Yellow);
         width: 150px;
         margin: auto;
+    }
+    #title h1{
+        font-size: 30px;
+    }
+    header div{
+        padding: 10px 10px;
+    }
+}
+@media (max-width:400px) {
+    *{
+        text-align: center;
+    }
+    #egg{
+        order: -1;
+    }
+    #content{
+        display: flex;
+        flex-direction: column;
+    }
+    #content > div{
+        width: 100%;
+    }
+    #content > div > div {
+        width: 100%;
+    }
+    #content > div > div > h2{
+        font-size: 30px;
+        width: 300px;
+        margin: 0 auto;
+    }
+    #content > div > div > p{
+        width: 300px;
+        margin: 0 auto;
+        margin-block: 20px;
+    }
+
+    #content > div > div > a{
+        margin: 0 auto;
+    }
+    #content > div > div 
+
+    #clientTestimonials > div{
+        margin-top: 5px;
+    }
+    .office{
+        margin-bottom: 10px;
+    }
+
+    #Images > div{
+        width: 50%;
+        height: 180px;
+    
+    }
+    #menu-footer{
+        width: 300px;
     }
     
 }
