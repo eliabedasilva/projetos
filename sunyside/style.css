@@ -378,7 +378,7 @@ footer{
         font-size: 20px;
     }
 }
-@media (max-width:800px){
+@media (max-width:900px){
     body{
         overflow-x: hidden;
     }
@@ -455,7 +455,7 @@ footer{
         padding: 10px 10px;
     }
 }
-@media (max-width:400px) {
+@media (max-width:800px) {
     *{
         text-align: center;
     }
