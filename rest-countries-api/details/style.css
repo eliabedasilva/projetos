@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;700&display=swap');
+:root{
+    --darkblue: hsl(209, 23%, 22%);
+    --verydarkdlue: hsl(207, 26%, 17%);
+    --darkgray: hsl(0, 0%, 52%);
+    --verylightgray : hsl(0, 0%, 97%);
+    --white: hsl(0, 0%, 100%);
+    --mainfont: 'Nunito Sans', sans-serif;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--mainfont);
+}
+body{
+    background-color: var(--white);
+}
+.darktheme{
+    transition: 0.1s;
+}
+body.darktheme{
+    background-color: var(--verydarkdlue);
+}
+.darktheme{
+    background-color: var(--darkblue);
+    color: white;
+}
+div.darktheme{
+    background-color: var(--darkblue);
+    color: white;
+}
+button{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+header{
+    background-color: var(--white);
+    display: flex;
+    padding-inline: 73px;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 23px;
+    box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.035);   
+}
+
+header > h1{
+    font-size: 25px;
+    font-weight: 700;
+}
+.darkmodeinput{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+main{
+    margin-top: 48px;
+    padding-inline: 73px;
+}
+a.backlink{
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    width: 136px;
+    color: black;
+    padding: 9px;
+    margin-top: 80px;
+    background-color: var(--white);
+    box-shadow: 5px -5px 6px rgba(0, 0, 0, 0.035);   
+    border-radius: 4px;
+    position: relative;
+}
+a.backlink::before{
+    border-radius: 4px;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 136px;
+    height: 40px;
+    box-shadow: -5px 5px 6px rgba(0, 0, 0, 0.035);  
+
+}
+a.darktheme{
+    background-color: var(--darkblue);
+    color: white;
+}
+.content{
+    margin-block: 80px;
+    display: flex;
+}
+img{
+    width: 560px;
+    height: 400px;
+    object-fit: cover;
+}
+.detailsofcountry{
+    padding-left: 120px;
+    padding-top: 45px;
+}
+.detailsofcountry > h2{
+    font-size: 33px;
+}
+.supercontainerdetails{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 120px;
+}
+.containerdetails > p{
+    font-weight: bold;
+    line-height: 30px;
+}
+.containerdetails > p > span{
+    font-weight: normal;
+}
+.bordercountries{
+    margin-top: 70px;
+}
+.bordercountries > p{
+    display: inline-block;
+    font-weight: bold;
+}
+.bordercountries > span{
+    padding: 5px;
+    border: 2px solid var(--verylightgray);
+}
