@@ -12,12 +12,13 @@ function getAllCountries(){
             var regionOfCountry = element['region']
             var capitalsOfCountry = element['capital']
             var pngUrlImageOfCountry = element['flags']['png']
+            var altFlag = element['flags']['alt']
             if(typeof(capitalsOfCountry) != 'undefined'){
                 var capitalOfCountry = capitalsOfCountry[0]
             }
             var divcountries = document.querySelector('div.content')
             divcountries.innerHTML += `<div class="country">
-            <img src="${pngUrlImageOfCountry}" alt="flag of ${nameOfCountry}">
+            <img src="${pngUrlImageOfCountry}" alt="${altFlag}">
             <h2 class="nameofcountry">${nameOfCountry}</h2>
             <p class="populationofcountry">Population:<span> ${populationOfCountryString}</span></p>
             <p class="regionofcountry">Region:<span> ${regionOfCountry}</span></p>

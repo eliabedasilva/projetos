@@ -3,6 +3,17 @@ var url = "https://restcountries.com/v3.1/name/"+sessionStorage.nameOfCountry
     .then(request => request.json())
     .then(response => {
         var country = response[0]
+        var nativeName = country.name.nativeName
+        var populationOfCountryInt = country.population
+        var populationOfCountryString = populationOfCountryInt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        var regionOfCountry = country.region
+        var capitalsOfCountry = country.capital
+        var pngUrlImageOfCountry = country.flags.png
+        var altFlag = country.flags.alt
+        if(typeof(capitalsOfCountry) != 'undefined'){
+            var capitalOfCountry = capitalsOfCountry[0]
+        }
+        console.log(nativeName)
         
     })
 
