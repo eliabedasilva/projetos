@@ -27,12 +27,11 @@ buttonDarkMode.addEventListener('click', ()=>{
     let parameters = new URLSearchParams(window.location.search);
     let nameOfCountry = parameters.get('country')
     let theme = parameters.get('theme')
-    if (theme === 'darktheme' || theme == null){
-        window.location = `rest-countries-api/details/?country=${nameOfCountry}&theme=lighttheme`
+    if (theme === 'lighttheme' || theme == null || theme == 'null'){
+        window.location = `?country=${nameOfCountry}&theme=darktheme`
     } else {
-        window.location = `rest-countries-api/details/?country=${nameOfCountry}&theme=darktheme`
+        window.location = `?country=${nameOfCountry}&theme=lighttheme`
     }
-    
 });
 
 //Voltando para a página principal
@@ -41,7 +40,7 @@ const backButton = document.querySelector('.backlink')
 backButton.addEventListener('click', ()=>{
     let parameters = new URLSearchParams(window.location.search);
     let theme = parameters.get('theme')
-    window.location = `rest-countries-api/?theme=${theme}`
+    window.location = `../?theme=${theme}`
 })
 
 
@@ -56,15 +55,16 @@ function setTheme(){
     //Alternado a classe darktheme em todos eles
 
     //Alternado a classe darktheme em todos eles
-    if (theme === 'darktheme'){
+    if(theme === 'lighttheme') {
+        allELements.forEach(element => {
+            element.classList.remove('darktheme')
+        });
+    }else if (theme === 'darktheme'){
         allELements.forEach(element => {
             element.classList.add('darktheme')
         });
     }
-    else if(theme === 'lighttheme') {
-        allELements.forEach(element => {
-            element.classList.remove('darktheme')
-        });
-    }
+    
+    
 }
 setTheme()

@@ -16,9 +16,6 @@
 body{
     background-color: var(--verylightgray);
 }
-.darktheme{
-    transition: 0.1s;
-}
 body.darktheme{
     background-color: var(--verydarkdlue);
 }

@@ -36,10 +36,10 @@ const buttonDarkMode = document.querySelector('.darkmodeinput')
 buttonDarkMode.addEventListener('click', ()=>{
     let parameters = new URLSearchParams(window.location.search);
     let theme = parameters.get('theme')
-    if (theme === 'darktheme' || theme == null){
-        window.location = 'rest-countries-api/?theme=lighttheme'
+    if (theme === 'lighttheme' || theme == null){
+        window.location = '?theme=darktheme'
     } else {
-        window.location = 'rest-countries-api/?theme=darktheme'
+        window.location = '?theme=lighttheme'
     }
     
     
