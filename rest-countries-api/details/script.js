@@ -28,9 +28,9 @@ buttonDarkMode.addEventListener('click', ()=>{
     let nameOfCountry = parameters.get('country')
     let theme = parameters.get('theme')
     if (theme === 'darktheme' || theme == null){
-        window.location = `/details/?country=${nameOfCountry}&theme=lighttheme`
+        window.location = `rest-countries-api/details/?country=${nameOfCountry}&theme=lighttheme`
     } else {
-        window.location = `/details/?country=${nameOfCountry}&theme=darktheme`
+        window.location = `rest-countries-api/details/?country=${nameOfCountry}&theme=darktheme`
     }
     
 });
@@ -41,7 +41,7 @@ const backButton = document.querySelector('.backlink')
 backButton.addEventListener('click', ()=>{
     let parameters = new URLSearchParams(window.location.search);
     let theme = parameters.get('theme')
-    window.location = `/..?theme=${theme}`
+    window.location = `rest-countries-api/?theme=${theme}`
 })
 
 
