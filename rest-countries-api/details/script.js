@@ -1,36 +1,127 @@
 let parameters = new URLSearchParams(window.location.search);
-let nameOfCountry = parameters.get('country')
-console.log(nameOfCountry)
-var url = "https://restcountries.com/v3.1/name/"+nameOfCountry
+let codeOfCountry = parameters.get('code')
+const url = 'https://restcountries.com/v3.1/alpha/'+codeOfCountry
     fetch(url)
     .then(request => request.json())
     .then(response => {
-        var country = response[0]
-        var nativeName = country.name.nativeName
-        var populationOfCountryInt = country.population
-        var populationOfCountryString = populationOfCountryInt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-        var regionOfCountry = country.region
-        var capitalsOfCountry = country.capital
-        var pngUrlImageOfCountry = country.flags.png
-        var altFlag = country.flags.alt
-        if(typeof(capitalsOfCountry) != 'undefined'){
-            var capitalOfCountry = capitalsOfCountry[0]
-        }
-        console.log(nativeName)
         
-    })
+        const country = response[0]
+        console.log(country)
+        const keyOfNativeName = Object.keys(country.name.nativeName)[0]
+        const nativeName = country['name']['nativeName'][keyOfNativeName]['common']
+        console.log(nativeName)
+        const nameOfCountry = country.name.common
+        const populationOfCountryInt = country.population
+        const populationOfCountryString = populationOfCountryInt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        const regionOfCountry = country.region
+        const subRegionOfCountry = country.subregion
+        const capitalsOfCountry = country.capital
+        const pngUrlImageOfCountry = country.flags.png
+        const altFlag = country.flags.alt
+        let topLevelDomain = 'undefined'
+        if (country.tld.length != 0){
+            topLevelDomain = country.tld[0]
+        }
+        let languagensString = 'undefined'
+        if (country.languages != undefined){
+            languagensString = (() => {
+                let concatenatedString = ''
+                const keys = Object.keys(country.languages);
+                const lastKey = keys[keys.length - 1];
+                
+                for (const key in country.languages) {
+                    if (country.languages.hasOwnProperty(key) && lastKey != key) {
+                        concatenatedString += `${country.languages[key]}, `
+                    } else if (lastKey === key){
+                        concatenatedString += `${country.languages[key]}`
+                    }
+                }
+                return concatenatedString
+            })()
+        }
+
+        let currenciesString = 'undefined'
+        if (country.currencies != undefined){
+            currenciesString = (() => {
+                let concatenatedString = ''
+                const keys = Object.keys(country.currencies);
+                const lastKey = keys[keys.length - 1];
+                
+                for (const key in country.currencies) {
+                    if (country.currencies.hasOwnProperty(key) && lastKey != key) {
+                        concatenatedString += `${country.currencies[key].name}, `
+                    } else if (lastKey === key){
+                        concatenatedString += `${country.currencies[key].name}`
+                    }
+                }
+                return concatenatedString
+            })()
+        }
+
+        let capitalOfCountry = 'undefined'
+        if(typeof(capitalsOfCountry) != 'undefined'){
+            capitalOfCountry = capitalsOfCountry[0]
+        }
+        let divContent = document.querySelector('.content')
+        divContent.innerHTML += `<img src="${pngUrlImageOfCountry}" alt="${altFlag}">
+        <div class="detailsofcountry">
+            <h2>${nameOfCountry}</h2>
+            <div class="supercontainerdetails">
+                <div class="containerdetails">
+                    <p>Native name: <span>${nativeName}</span></p>
+                    <p>Population: <span>${populationOfCountryString}</span></p>
+                    <p>Region: <span>${regionOfCountry}</span></p>
+                    <p>Sub Region: <span>${subRegionOfCountry}</span></p>
+                    <p>Capital: <span>${capitalOfCountry}</span></p>
+                </div>
+                <div class="containerdetails">
+                    <p>Top Level Domain: <span>${topLevelDomain}</span></p>
+                    <p>Currencies: <span>${currenciesString}</span></p>
+                    <p>Languagens: <span class="languagens">${languagensString}</span></p>
+                </div>
+            </div>
+            <div class="bordercountries">
+                <p>Border Countries: </p>
+                <section>
+                    
+                </section>
+            </div>
+        </div>
+    </div>`
+    let borderCountries = country.borders 
+    if(borderCountries != undefined){
+        borderCountries.forEach(borderCountry => {
+            let borderCountriesCointainer = document.querySelector('.bordercountries > section')
+            borderCountriesCointainer.innerHTML += `<button class="bordercountry">${borderCountry}</button>`
+        });
+    }   
+    setTheme()
+    const buttonsBorderCountries = document.querySelectorAll('.bordercountry')
+    buttonsBorderCountries.forEach(buttonsBorderCountry => {
+        buttonsBorderCountry.addEventListener('click', ()=>{
+            let parameters = new URLSearchParams(window.location.search);
+            let theme = parameters.get('theme')
+            if (theme === 'lighttheme' || theme == null || theme == 'null'){
+                window.location = `?code=${buttonsBorderCountry.textContent}&theme=lighttheme`
+            } else {
+                window.location = `?code=${buttonsBorderCountry.textContent}&theme=darktheme`
+            }
+        })
+    });
+
+})
 
 //Alternado entre o modo Dark e Light
 const buttonDarkMode = document.querySelector('.darkmodeinput')
 buttonDarkMode.addEventListener('click', ()=>{
     setTheme()
     let parameters = new URLSearchParams(window.location.search);
-    let nameOfCountry = parameters.get('country')
+    let codeOfCountry = parameters.get('code')
     let theme = parameters.get('theme')
     if (theme === 'lighttheme' || theme == null || theme == 'null'){
-        window.location = `?country=${nameOfCountry}&theme=darktheme`
+        window.location = `?code=${codeOfCountry}&theme=darktheme`
     } else {
-        window.location = `?country=${nameOfCountry}&theme=lighttheme`
+        window.location = `?code=${codeOfCountry}&theme=lighttheme`
     }
 });
 
@@ -51,7 +142,9 @@ function setTheme(){
     const body = document.querySelector('body')
     const header = document.querySelector('header')
     const buttonBack = document.querySelector('a.backlink')
+    const buttonsBorderCountries = document.querySelectorAll('.bordercountry')
     let allELements = [buttonDarkMode, body, header, buttonBack] 
+    allELements = allELements.concat(Array.from(buttonsBorderCountries))
     //Alternado a classe darktheme em todos eles
 
     //Alternado a classe darktheme em todos eles
@@ -63,8 +156,7 @@ function setTheme(){
         allELements.forEach(element => {
             element.classList.add('darktheme')
         });
-    }
-    
-    
+    }     
 }
-setTheme()
+
+

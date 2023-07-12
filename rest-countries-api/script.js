@@ -13,11 +13,12 @@ function getAllCountries(){
             let pngUrlImageOfCountry = element['flags']['png']
             let altFlag = element['flags']['alt']
             let capitalOfCountry = 'Undefined';
+            let code = element['cca2']
             if(typeof(capitalsOfCountry) != 'undefined'){
                 capitalOfCountry = capitalsOfCountry[0]
             }
             let divcountries = document.querySelector('div.content')
-            divcountries.innerHTML += `<div class="country">
+            divcountries.innerHTML += `<div class="country" id="${code}">
             <img src="${pngUrlImageOfCountry}" alt="${altFlag}">
             <h2 class="nameofcountry">${nameOfCountry}</h2>
             <p class="populationofcountry">Population:<span> ${populationOfCountryString}</span></p>
@@ -135,7 +136,7 @@ countries.addEventListener('click', function(event){
         let country = event.target.parentNode
         let parameters = new URLSearchParams(window.location.search);
         let theme = parameters.get('theme');
-        window.location = `details/?country=${country.querySelector('.nameofcountry').innerHTML.toLowerCase()}&theme=${theme}`
+        window.location = `details/?code=${country.id.toLowerCase()}&theme=${theme}`
     }
 })
 
