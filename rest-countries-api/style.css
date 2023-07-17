@@ -54,14 +54,13 @@ header > h1{
     gap: 5px;
     align-items: center;
 }
-main{
-    margin-top: 48px;
-    padding-inline: 73px;
-}
+
 .searchandfilter{
+    margin-top: 48px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-inline: 73px;
 }
 .searchbox {
     display: flex;
@@ -114,6 +113,7 @@ main{
 }
 .content{
     margin-block: 48px;
+    padding-inline: 73px;
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
@@ -143,11 +143,44 @@ main{
     font-weight: 300;
 }
 .country > img{
-    width: 264px;
-    height: 160px;
+    width: 100%;
     object-fit: cover;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     cursor:pointer;
 }
 
+
+
+@media (max-width:810px){
+    header{
+        padding-inline: 20px;
+    }
+    header > h1{
+        font-size: 17px;
+    }
+    .searchandfilter{
+        flex-direction: column;
+        align-items: flex-start;
+        padding-inline: 20px;
+        margin-top: 30px;
+    }
+    .searchbox{
+        margin-bottom: 50px;
+    }
+    .searchbox > input{
+        display: block;
+        width: 90vw;
+    }
+
+    .content{
+        margin-block: 30px;
+        padding-inline: 70px;
+        display: block;
+    }
+    .country{
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    
+}

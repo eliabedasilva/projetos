@@ -7,10 +7,13 @@ const url = 'https://restcountries.com/v3.1/alpha/'+codeOfCountry
         
         const country = response[0]
         console.log(country)
-        const keyOfNativeName = Object.keys(country.name.nativeName)[0]
-        const nativeName = country['name']['nativeName'][keyOfNativeName]['common']
-        console.log(nativeName)
         const nameOfCountry = country.name.common
+        document.querySelector('title').textContent = nameOfCountry
+        let nativeName = 'undefined'
+        if (country.name.nativeName != undefined){
+            const keyOfNativeName = Object.keys(country.name.nativeName)[0]
+            nativeName = country['name']['nativeName'][keyOfNativeName]['common']
+        } 
         const populationOfCountryInt = country.population
         const populationOfCountryString = populationOfCountryInt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         const regionOfCountry = country.region
@@ -158,5 +161,3 @@ function setTheme(){
         });
     }     
 }
-
-
