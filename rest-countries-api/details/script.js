@@ -4,7 +4,6 @@ const url = 'https://restcountries.com/v3.1/alpha/'+codeOfCountry
     fetch(url)
     .then(request => request.json())
     .then(response => {
-        
         const country = response[0]
         console.log(country)
         const nameOfCountry = country.name.common
@@ -98,7 +97,7 @@ const url = 'https://restcountries.com/v3.1/alpha/'+codeOfCountry
             borderCountriesCointainer.innerHTML += `<button class="bordercountry">${borderCountry}</button>`
         });
     }   
-    setTheme()
+    
     const buttonsBorderCountries = document.querySelectorAll('.bordercountry')
     buttonsBorderCountries.forEach(buttonsBorderCountry => {
         buttonsBorderCountry.addEventListener('click', ()=>{
@@ -111,36 +110,32 @@ const url = 'https://restcountries.com/v3.1/alpha/'+codeOfCountry
             }
         })
     });
-
+    setTheme()
 })
 
 //Alternado entre o modo Dark e Light
 const buttonDarkMode = document.querySelector('.darkmodeinput')
 buttonDarkMode.addEventListener('click', ()=>{
-    setTheme()
-    let parameters = new URLSearchParams(window.location.search);
-    let codeOfCountry = parameters.get('code')
-    let theme = parameters.get('theme')
-    if (theme === 'lighttheme' || theme == null || theme == 'null'){
-        window.location = `?code=${codeOfCountry}&theme=darktheme`
+    let theme = sessionStorage.theme
+    if (theme === 'lighttheme' || theme == null){
+        sessionStorage.theme = 'darktheme'
+
     } else {
-        window.location = `?code=${codeOfCountry}&theme=lighttheme`
+        sessionStorage.theme = 'lighttheme'
     }
+    setTheme()
 });
 
 //Voltando para a página principal
 
 const backButton = document.querySelector('.backlink')
 backButton.addEventListener('click', ()=>{
-    let parameters = new URLSearchParams(window.location.search);
-    let theme = parameters.get('theme')
-    window.location = `../?theme=${theme}`
+    window.location = `../`
 })
 
 
 function setTheme(){
-    let parameters = new URLSearchParams(window.location.search);
-    let theme = parameters.get('theme')
+    let theme = sessionStorage.theme
     // Pegandos todos os elementos que alteram o estilo
     const body = document.querySelector('body')
     const header = document.querySelector('header')
@@ -151,13 +146,13 @@ function setTheme(){
     //Alternado a classe darktheme em todos eles
 
     //Alternado a classe darktheme em todos eles
-    if(theme === 'lighttheme') {
+    if(theme === 'darktheme') {
+        allELements.forEach(element => {
+            element.classList.add('darktheme')
+        }); 
+    }else if (theme === 'lighttheme'){
         allELements.forEach(element => {
             element.classList.remove('darktheme')
         });
-    }else if (theme === 'darktheme'){
-        allELements.forEach(element => {
-            element.classList.add('darktheme')
-        });
-    }     
+    }  
 }

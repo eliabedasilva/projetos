@@ -35,22 +35,20 @@ function getAllCountries(){
 //Alternado entre o modo Dark e Light
 const buttonDarkMode = document.querySelector('.darkmodeinput')
 buttonDarkMode.addEventListener('click', ()=>{
-    let parameters = new URLSearchParams(window.location.search);
-    let theme = parameters.get('theme')
+    let theme = sessionStorage.theme
     if (theme === 'lighttheme' || theme == null){
-        window.location = '?theme=darktheme'
+        sessionStorage.theme = 'darktheme'
     } else {
-        window.location = '?theme=lighttheme'
+        sessionStorage.theme = 'lighttheme'
     }
     
-    
+    setTheme()
     
 });
 
 function setTheme(){
     // Pegandos todos os elementos que alteram o estilo
-    let parameters = new URLSearchParams(window.location.search);
-    let theme = parameters.get('theme');
+    let theme = sessionStorage.theme
     console.log(theme)
 
     const body = document.querySelector('body')
@@ -67,14 +65,15 @@ function setTheme(){
     allELements = allELements.concat(Array.from(buttonsFilterByRegion))
     
     //Alternado a classe darktheme em todos eles
-    if (theme === 'lighttheme'){
-        allELements.forEach(element => {
-            element.classList.remove('darktheme')
-        });
-        
-    }else if(theme === 'darktheme') {
+
+
+    if(theme === 'darktheme') {
         allELements.forEach(element => {
             element.classList.add('darktheme')
+        }); 
+    }else if (theme === 'lighttheme'){
+        allELements.forEach(element => {
+            element.classList.remove('darktheme')
         });
     }
 }
@@ -134,9 +133,7 @@ const countries = document.querySelector('.content')
 countries.addEventListener('click', function(event){
     if (event.target.tagName === 'IMG' ) {
         let country = event.target.parentNode
-        let parameters = new URLSearchParams(window.location.search);
-        let theme = parameters.get('theme');
-        window.location = `details/?code=${country.id.toLowerCase()}&theme=${theme}`
+        window.location = `details/?code=${country.id.toLowerCase()}`
     }
 })
 
