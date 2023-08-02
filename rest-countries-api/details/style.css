@@ -139,6 +139,9 @@ img{
     width: 96px;
     text-align: center;
 }
+div.bordercountry{
+    width: auto;
+}
 
 @media (max-width:810px){
     header{

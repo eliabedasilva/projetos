@@ -55,6 +55,16 @@ header > h1{
     align-items: center;
 }
 
+
+
+
+.loading > h1{
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
 .searchandfilter{
     margin-top: 48px;
     display: flex;
@@ -116,7 +126,7 @@ header > h1{
     padding-inline: 73px;
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 74px;
 
 }
 .country{

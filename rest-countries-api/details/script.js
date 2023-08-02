@@ -90,15 +90,18 @@ const url = 'https://restcountries.com/v3.1/alpha/'+codeOfCountry
             </div>
         </div>
     </div>`
+
     let borderCountries = country.borders 
+    let borderCountriesCointainer = document.querySelector('.bordercountries > section')
     if(borderCountries != undefined){
         borderCountries.forEach(borderCountry => {
-            let borderCountriesCointainer = document.querySelector('.bordercountries > section')
             borderCountriesCointainer.innerHTML += `<button class="bordercountry">${borderCountry}</button>`
         });
-    }   
+    } else {
+        borderCountriesCointainer.innerHTML += `<div class="bordercountry">No country on the border</div>`
+    }  
     
-    const buttonsBorderCountries = document.querySelectorAll('.bordercountry')
+    const buttonsBorderCountries = document.querySelectorAll('button.bordercountry')
     buttonsBorderCountries.forEach(buttonsBorderCountry => {
         buttonsBorderCountry.addEventListener('click', ()=>{
             let parameters = new URLSearchParams(window.location.search);

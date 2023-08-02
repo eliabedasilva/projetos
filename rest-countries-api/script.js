@@ -1,9 +1,12 @@
-
+document.querySelector('.searchandfilter').style.display = 'none'
 function getAllCountries(){
     const url = "https://restcountries.com/v3.1/all"
     fetch(url)
     .then(request => request.json())
     .then(response => {
+        
+        document.querySelector('.loading').style.display = 'none'
+        document.querySelector('.searchandfilter').style.display = 'flex'
         response.forEach(element => {
             let nameOfCountry = element['name']['common'] 
             let populationOfCountryInt = element['population']
@@ -25,7 +28,7 @@ function getAllCountries(){
             <p class="regionofcountry">Region:<span> ${regionOfCountry}</span></p>
             <p class="capitalofcountry">Capital:<span> ${capitalOfCountry}</span></p>
             </div>`
-        });  
+        });
         setTheme()
     })  
     
@@ -116,6 +119,7 @@ const regions = document.querySelectorAll('.filter > ul > li > button')
 regions.forEach(region => {
     region.addEventListener('click', ()=>{
         const countries = document.querySelectorAll('.country');
+        document.querySelector('.filter > ul').style.display = 'none'
         countries.forEach(country => {
             let regionOfCountry = country.querySelector('.regionofcountry > span').innerHTML.toLowerCase();
             if (regionOfCountry.indexOf(region.innerHTML.toLocaleLowerCase()) !== -1){
